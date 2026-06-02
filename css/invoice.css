@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Delius&family=Iceberg&display=swap');
+
+.compact-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    line-height: 1.2;
+}
+
+.compact-lines div {
+    margin: 0;
+    padding: 0;
+}
+
+/* =========================
+   A4 INVOICE SHEET
+========================= */
+
+#invoice {
+    width: 794px;
+    min-height: 1123px;
+    background: white;
+    color: black;
+    box-shadow: 0 0 25px rgba(0,0,0,0.45);
+
+    overflow: visible;
+    position: relative;
+}
+
+.invoice-paper {
+    width: 100%;
+    height: 1123px;
+
+    padding: 40px;
+    box-sizing: border-box;
+
+    overflow: hidden;
+}
+
+/* HEADER */
+.invoice-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.invoice-title h1 {
+    margin: 0;
+    font-size: 42px;
+    letter-spacing: 3px;
+}
+
+.invoice-title p {
+    color: #666;
+    letter-spacing: 2px;
+}
+
+.company-details {
+    text-align: right;
+    line-height: 1.8;
+}
+
+.company-details h2 {
+    margin: 0 0 10px 0;
+    font-size: 30px;
+    font-family: "Delius", cursive;
+    color: #4b52dd;
+    text-shadow: 1px 1px 0 rgba(75,82,221,0.2);
+    display: inline-block;
+}
+
+/* CUSTOMER AREA */
+.invoice-top {
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.customer-details {
+    width: 60%;
+}
+
+.customer-card {
+    min-height: 120px;
+    line-height: 1.2;
+}
+
+.invoice-meta {
+    width: 60%;
+    height: fit-content;
+}
+
+.meta-row {
+    gap: 5px;
+    padding: 5px;
+    display: flex;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.meta-row:last-child {
+    border-bottom: none;
+}
+
+/* JOB */
+.job-section {
+    margin-bottom: 40px;
+}
+
+.job-box {
+    
+    min-height: 270px;
+    line-height: 1.2;
+
+
+}
+
+/* PAYMENT */
+.payment-section {
+    border-top: 2px solid #ddd;
+    padding-top: 20px;
+    margin-bottom: 50px;
+    line-height: 1.0;
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 50px;
+    font-size: 18px;
+}

@@ -1,0 +1,11 @@
+/* =========================
+   QUOTE OVERRIDES
+========================= */
+
+.quote .payment-section {
+    display: none;
+}
+
+.quote .footer {
+    color: #2563eb;
+}

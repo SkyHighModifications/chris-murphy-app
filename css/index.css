@@ -1,0 +1,319 @@
+/* =========================
+   APP SHELL & LAYOUT
+========================= */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    min-height: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-ui);
+    font-size: 14px;
+    line-height: 1.5;
+    background: var(--color-bg);
+    color: var(--color-text);
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Main content row (sidebar + preview) */
+.container {
+    flex: 1;
+    display: flex;
+    min-height: 0;
+    overflow: hidden;
+    background: var(--color-bg-subtle);
+}
+
+.app-version {
+    color: var(--color-text-muted);
+    font-size: 0.75rem;
+    font-family: var(--font-ui);
+    font-weight: 400;
+    margin-left: 10px;
+    padding: 2px 8px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 999px;
+    letter-spacing: 0.02em;
+}
+
+/* =========================
+   TOOLBAR
+========================= */
+
+.toolbar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    height: var(--toolbar-h);
+    padding: 0 14px;
+    background: linear-gradient(180deg, #121a2e 0%, var(--color-bg-subtle) 100%);
+    border-bottom: 1px solid var(--color-border-subtle);
+    box-shadow: var(--shadow-inset);
+}
+
+.toolbar button {
+    width: auto;
+    min-width: 40px;
+    height: 36px;
+    margin: 0;
+    padding: 0 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--color-surface-elevated);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    border-radius: var(--radius-sm);
+    font-size: 0;
+    cursor: pointer;
+    transition:
+        background var(--transition-fast),
+        border-color var(--transition-fast),
+        color var(--transition-fast),
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast);
+}
+
+.toolbar button:hover {
+    transform: translateY(-1px);
+    border-color: var(--color-border-focus);
+    box-shadow: var(--shadow-sm);
+}
+
+.toolbar button:active {
+    transform: translateY(0);
+}
+
+.toolbar button [data-lucide] {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+#newBtn {
+    background: var(--color-primary-muted);
+    border-color: rgba(59, 130, 246, 0.35);
+    color: #93c5fd;
+}
+
+#newBtn:hover {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: #fff;
+}
+
+#newCustomerBtn:hover {
+    background: #4f46e5;
+    border-color: #4f46e5;
+    color: #fff;
+}
+
+#saveCustomerBtn {
+    background: var(--color-surface-elevated);
+    border-color: var(--color-border);
+    color: var(--color-text-label);
+}
+
+#saveCustomerBtn:hover {
+    background: #475569;
+    border-color: #64748b;
+    color: #fff;
+}
+
+#printBtn:hover {
+    background: #6366f1;
+    border-color: #6366f1;
+    color: #fff;
+}
+
+#pdfBtn {
+    background: var(--color-success-muted);
+    border-color: rgba(16, 185, 129, 0.35);
+    color: #6ee7b7;
+}
+
+#pdfBtn:hover {
+    background: var(--color-success);
+    border-color: var(--color-success);
+    color: #fff;
+}
+
+/* =========================
+   PREVIEW PANE (shell)
+========================= */
+
+.preview-wrapper {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: auto;
+    padding: 28px 32px 40px;
+    background:
+        radial-gradient(ellipse 80% 50% at 50% 0%, rgba(59, 130, 246, 0.06), transparent),
+        var(--color-bg-subtle);
+}
+
+/* Checkerboard hint behind document */
+.preview-wrapper::before {
+    content: "";
+    position: fixed;
+    inset: var(--titlebar-h) 0 var(--footer-h) var(--sidebar-w);
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.12;
+    background-image:
+        linear-gradient(45deg, #1e293b 25%, transparent 25%),
+        linear-gradient(-45deg, #1e293b 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #1e293b 75%),
+        linear-gradient(-45deg, transparent 75%, #1e293b 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0;
+}
+
+.preview-wrapper > #invoice {
+    position: relative;
+    z-index: 1;
+}
+
+/* =========================
+   SCROLLBARS
+========================= */
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) transparent;
+}
+
+*::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background: #4b5f7a;
+    background-clip: padding-box;
+}
+
+*::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+/* =========================
+   MODALS (shared shell)
+========================= */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 9999;
+    background: rgba(2, 6, 23, 0.72);
+    backdrop-filter: blur(6px);
+}
+
+.modal {
+    width: min(420px, 100%);
+    max-height: calc(100vh - 40px);
+    overflow: auto;
+    background: var(--color-surface-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: 28px 30px;
+    color: var(--color-text);
+    box-shadow: var(--shadow-modal);
+}
+
+.modal h2 {
+    margin: 0 0 8px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-text);
+    letter-spacing: -0.02em;
+}
+
+.modal p {
+    margin: 0;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+}
+
+.modal-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.modal-buttons button {
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.modal-list {
+    margin-top: 12px;
+    max-height: 260px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.modal-overlay:not(.job-sheet-modal) .modal-list-item {
+    padding: 12px 14px;
+    background: var(--color-bg-subtle);
+    margin: 0 0 6px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-border-subtle);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    transition:
+        background var(--transition-fast),
+        border-color var(--transition-fast);
+}
+
+.modal-overlay:not(.job-sheet-modal) .modal-list-item:hover {
+    background: var(--color-surface-hover);
+    border-color: var(--color-primary);
+}
+
+#modalSave {
+    background: var(--color-primary);
+    color: #fff;
+}
+
+#modalSkip {
+    background: var(--color-surface-hover);
+    color: var(--color-text);
+}

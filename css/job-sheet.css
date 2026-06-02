@@ -1,0 +1,165 @@
+/* =========================
+   JOB DATA SHEET — aligned to Time Sheet style
+   Keeps current table/column widths
+========================= */
+
+.sheet.job-sheet-paper,
+.sheet:has(#jobTable) {
+    width: 794px;
+    min-height: 1123px;
+    background: #fff;
+    color: #000;
+    padding: 36px 40px 48px;
+    box-shadow: var(--shadow-sheet);
+    box-sizing: border-box;
+}
+
+.sheet:has(#jobTable) .box {
+    margin: 0;
+}
+
+/* Match Invoice/Quote "Chris Murphy" heading style */
+.sheet:has(#jobTable) .job-sheet-title,
+.sheet:has(#jobTable) .box > h3 {
+    margin: 0 0 14px;
+    padding: 0;
+    border: none;
+    text-align: center;
+    font-size: 30px;
+    font-family: "Delius", cursive;
+    font-weight: 400;
+    color: #4b52dd;
+    text-shadow: 1px 1px 0 rgba(75, 82, 221, 0.2);
+    letter-spacing: 0.02em;
+}
+
+#jobTable {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    font-size: 11pt;
+    line-height: 1.35;
+    color: #000;
+    background: #fff;
+}
+
+/* Time sheet-like table style */
+#jobTable th,
+#jobTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    vertical-align: middle;
+    text-align: left;
+    background: #fff;
+    min-height: 28px;
+    height: 32px;
+    overflow: hidden;
+    word-wrap: break-word;
+}
+
+#jobTable thead th {
+    font-weight: 700;
+    text-align: left;
+    background: #f3f4f6;
+    color: #000;
+}
+
+/* Keep existing current width proportions exactly */
+#jobTable col.col-jobno { width: 11%; }
+#jobTable col.col-customer { width: 20%; }
+#jobTable col.col-amount { width: 12%; }
+#jobTable col.col-date { width: 13%; }
+#jobTable col.col-paid { width: 6%; }
+#jobTable col.col-desc { width: 42%; }
+
+#jobTable td:nth-child(1) {
+    font-weight: 700;
+    background: #f3f4f6;
+}
+
+#jobTable td:nth-child(3) {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+#jobTable th:nth-child(3) {
+    text-align: right;
+}
+
+#jobTable td:nth-child(4) {
+    white-space: nowrap;
+}
+
+/* Paid — narrow tick column */
+#jobTable th:nth-child(5),
+#jobTable td:nth-child(5) {
+    text-align: center;
+    padding: 8px 4px;
+}
+
+#jobTable .paid-cell {
+    cursor: pointer;
+    user-select: none;
+    font-size: 12pt;
+    line-height: 1;
+    background: #fff !important;
+}
+
+#jobTable .paid-cell:hover {
+    background: #f3f4f6 !important;
+}
+
+#jobTable .paid-cell.paid {
+    color: #16a34a;
+}
+
+#jobTable .paid-cell.unpaid {
+    color: #999;
+}
+
+#jobTable td:nth-child(6) {
+    font-weight: 400;
+}
+
+#jobTable [contenteditable]:focus {
+    outline: 2px solid #2563eb;
+    outline-offset: -2px;
+    background: #eff6ff !important;
+}
+
+#jobTable [contenteditable]:empty {
+    min-height: 1em;
+}
+
+.job-customer:empty::before {
+    content: attr(data-placeholder);
+    color: #94a3b8;
+    pointer-events: none;
+}
+
+.currency {
+    font-family: "Dosis", sans-serif;
+    font-weight: bold;
+}
+
+/* Extra rows added in app keep same row height */
+#jobTable tbody tr {
+    height: 32px;
+}
+
+/* PDF / print */
+@media print {
+    .sheet:has(#jobTable) {
+        box-shadow: none;
+        padding: 12mm 15mm;
+    }
+
+    #jobTable [contenteditable]:focus {
+        background: #fff !important;
+        outline: none;
+    }
+
+    #jobTable .paid-cell:hover {
+        background: #fff !important;
+    }
+}

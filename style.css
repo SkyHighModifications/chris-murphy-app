@@ -1,0 +1,42 @@
+/* =========================
+   FONTS
+========================= */
+@import url('https://fonts.googleapis.com/css2?family=Delius&family=Iceberg&display=swap');
+
+/* =========================
+   DESIGN TOKENS & PAGES
+========================= */
+@import url("./css/variables.css");
+@import url("./css/index.css");
+@import url("./css/modals.css");
+@import url("./css/updates.css");
+@import url("./css/job-sheet.css");
+@import url("./css/time-sheet.css");
+@import url(./css/sidebar.css);
+@import url(./css/dropdown.css);
+@import url(./css/invoice.css);
+@import url(./css/quote.css);
+@import url(./css/toast.css);
+@import url(./css/title.css);
+@import url(./css/buttons.css);
+@import url(./css/misc.css);
+
+/* =========================
+   GLOBAL
+========================= */
+p {
+    margin: 0;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+[data-lucide] {
+    width: 16px;
+    height: 16px;
+    stroke-width: 2;
+}

@@ -1,0 +1,49 @@
+:root {
+    /* Colours */
+    --color-bg: #0b1120;
+    --color-bg-subtle: #0f172a;
+    --color-surface: #151f32;
+    --color-surface-elevated: #1a2744;
+    --color-surface-hover: #243352;
+    --color-border: #2d3f5c;
+    --color-border-subtle: #243044;
+    --color-border-focus: #3b82f6;
+    --color-text: #f1f5f9;
+    --color-text-muted: #8b9cb8;
+    --color-text-label: #c5d0e0;
+    --color-primary: #3b82f6;
+    --color-primary-hover: #2563eb;
+    --color-primary-muted: rgba(59, 130, 246, 0.15);
+    --color-success: #10b981;
+    --color-success-muted: rgba(16, 185, 129, 0.15);
+    --color-danger: #ef4444;
+    --color-danger-muted: rgba(239, 68, 68, 0.12);
+    --color-accent: #8b5cf6;
+
+    /* Layout */
+    --titlebar-h: 40px;
+    --toolbar-h: 52px;
+    --footer-h: 28px;
+    --sidebar-w: 360px;
+
+    /* Shape */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 20px;
+
+    /* Effects */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.25);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.35);
+    --shadow-modal: 0 24px 48px rgba(0, 0, 0, 0.55);
+    --shadow-sheet: 0 8px 32px rgba(0, 0, 0, 0.45);
+    --shadow-inset: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+
+    /* Typography */
+    --font-ui: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-display: "Delius", cursive;
+
+    /* Motion */
+    --transition-fast: 0.15s ease;
+    --transition-normal: 0.22s ease;
+}

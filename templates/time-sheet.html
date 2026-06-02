@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+
+<title>Timesheet Sheet</title>
+
+<link rel="stylesheet" href="css/time-sheet.css">
+</head>
+
+<body>
+
+<div class="sheet">
+    <!-- TIMESHEET -->
+    <div class="box">
+
+        <h3>TIME SHEET</h3>
+
+        <table class="timesheet"  id="timeTable">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Description of Work</th>
+                    <th>Hours</th>
+                </tr>
+            </thead>
+
+        <tbody>
+            <tr>
+                <td id="p-date" contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+            </tr>
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td colspan="2" style="text-align:right;"><strong>Total Hours</strong></td>
+                <td id="totalHours">0</td>
+            </tr>
+        </tfoot>
+        </table>
+
+    </div>
+
+</div>
+<script type="module" src="renderer/script.js"></script>
+</body>
+</html>
