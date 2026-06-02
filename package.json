@@ -12,12 +12,13 @@
   },
   "scripts": {
     "dev": "electron .",
-    "build": "electron-builder",
+    "build": "electron-builder --publish always",
     "dist": "electron-builder",
     "start": "electron ."
   },
   "build": {
     "appId": "uk.co.murphy.chris",
+    "buildDependenciesFromSource": false,
     "publish": {
       "provider": "github",
       "owner": "SkyHighModifications",
