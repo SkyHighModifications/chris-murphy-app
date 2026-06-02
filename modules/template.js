@@ -115,13 +115,16 @@ export function updatePreviewFromInputs() {
     const dateField = document.getElementById("p-date");
     const dateValue = dateField?.value ?? dateField?.innerText ?? "";
 
+    const customerName = customerInput?.value?.trim() || "";
+
     const map = {
-        "p-customer": customerInput?.value || "",
+        "p-customer": customerName,
         "p-address": addressInput?.value || "",
         "p-date": dateValue ? formatDate(dateValue) : "",
         "p-ref": document.getElementById("p-ref")?.value || "",
         "p-job": document.getElementById("p-job")?.value || "",
-        "p-payment": document.getElementById("payment")?.value || ""
+        "p-payment": document.getElementById("payment")?.value || "",
+        "p-timesheet-customer": customerName
     };
 
     Object.entries(map).forEach(([id, value]) => {

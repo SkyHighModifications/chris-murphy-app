@@ -15,8 +15,9 @@
 }
 
 /* Match Invoice/Quote "Chris Murphy" heading style */
+.sheet:has(#timeTable) .timesheet-title,
 .sheet:has(#timeTable) .box > h3 {
-    margin: 0 0 14px;
+    margin: 0 0 10px;
     border: none;
     padding: 0;
     text-align: center;
@@ -26,6 +27,36 @@
     color: #4b52dd;
     text-shadow: 1px 1px 0 rgba(75, 82, 221, 0.2);
     letter-spacing: 0.02em;
+}
+
+.sheet:has(#timeTable) .timesheet-customer-line {
+    margin: 0 0 18px;
+    padding: 0 8px 12px;
+    text-align: center;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 1rem;
+    line-height: 1.4;
+    color: #111827;
+}
+
+.sheet:has(#timeTable) .timesheet-customer-label {
+    font-weight: 600;
+    margin-right: 6px;
+}
+
+.sheet:has(#timeTable) .timesheet-customer-name {
+    font-weight: 500;
+}
+
+.sheet:has(#timeTable) .timesheet-customer-name:empty::before {
+    content: "— select or enter a customer in the sidebar —";
+    color: #94a3b8;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.sheet:has(#timeTable) .timesheet-total-label {
+    text-align: right;
 }
 
 #timeTable {
